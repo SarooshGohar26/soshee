@@ -1,0 +1,355 @@
+/* ==========================================================================
+   Practice Dashboard – styles
+   ========================================================================== */
+
+:root {
+  --color-bg: #f6f8fb;
+  --color-surface: #ffffff;
+  --color-border: #e6e9ef;
+  --color-border-strong: #d8dde6;
+  --color-text: #1f2937;
+  --color-text-muted: #6b7280;
+  --color-text-soft: #9aa3af;
+
+  --color-red: #e8413b;
+  --color-orange: #f29030;
+  --color-yellow: #f4c037;
+  --color-blue: #2f87ff;
+  --color-purple: #6f5cf2;
+  --color-green: #2bb673;
+  --color-rose: #e0524c;
+  --color-amber: #f4a93a;
+
+  --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --radius-card: 8px;
+  --radius-pill: 999px;
+
+  --font-stack: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ----- base ----- */
+.app-body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-stack);
+  font-size: 13px;
+  min-height: 100vh;
+}
+
+.dashboard {
+  max-width: 1600px;
+}
+
+/* ----- top bar ----- */
+.top-bar .breadcrumb {
+  font-size: 13px;
+}
+
+.top-bar .breadcrumb-item + .breadcrumb-item::before {
+  content: "›";
+  color: var(--color-text-soft);
+}
+
+.top-bar .breadcrumb-item a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.top-bar .breadcrumb-item.active {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.dark-mode-toggle {
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.dark-mode-toggle i {
+  color: var(--color-blue);
+}
+
+/* ----- KPI cards ----- */
+.kpi-row {
+  scrollbar-width: thin;
+}
+
+.kpi-card {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  width: 170px;
+  min-height: 70px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.kpi-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background-color: var(--accent, var(--color-blue));
+}
+
+.kpi-card__bar {
+  width: 4px;
+  background-color: var(--accent, var(--color-blue));
+}
+
+.kpi-card__body {
+  padding: 8px 12px 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.kpi-card__label {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.kpi-card__value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.kpi-card__sub {
+  font-size: 11px;
+  color: var(--color-text-soft);
+}
+
+.kpi-card--red    { --accent: var(--color-red); }
+.kpi-card--orange { --accent: var(--color-orange); }
+.kpi-card--yellow { --accent: var(--color-yellow); }
+.kpi-card--blue   { --accent: var(--color-blue); }
+.kpi-card--purple { --accent: var(--color-purple); }
+.kpi-card--green  { --accent: var(--color-green); }
+.kpi-card--rose   { --accent: var(--color-rose); }
+.kpi-card--amber  { --accent: var(--color-amber); }
+
+/* ----- toolbar ----- */
+.toolbar {
+  font-size: 13px;
+}
+
+.toolbar-link {
+  font-size: 13px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.toolbar-link:hover {
+  text-decoration: underline;
+}
+
+.filter-select,
+.filter-date {
+  width: 180px;
+  font-size: 12px;
+}
+
+.filter-select {
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+}
+
+.filter-date .form-control {
+  border-right: 0;
+}
+
+.filter-date .input-group-text {
+  border-left: 0;
+  color: var(--color-text-muted);
+}
+
+/* ----- table ----- */
+.table-card {
+  border-radius: var(--radius-card);
+  background-color: var(--color-surface);
+}
+
+.practice-table {
+  font-size: 12px;
+  margin-bottom: 0;
+  white-space: nowrap;
+  --bs-table-hover-bg: #f9fbfd;
+}
+
+.practice-table thead th {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  font-size: 12px;
+  padding: 12px 14px;
+  vertical-align: middle;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.practice-table tbody td {
+  padding: 12px 14px;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.practice-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.sort-ico {
+  font-size: 10px;
+  color: var(--color-text-soft);
+  margin-left: 4px;
+}
+
+.row-code {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* ----- practice tag ----- */
+.practice-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.dot--green  { background-color: var(--color-green); }
+.dot--orange { background-color: var(--color-orange); }
+.dot--red    { background-color: var(--color-red); }
+.dot--gray   { background-color: var(--color-text-soft); }
+
+/* ----- time pill ----- */
+.time-pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 500;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.time-pill--green {
+  background-color: #e8f7ee;
+  border-color: #cdebd8;
+  color: #1f7a44;
+}
+
+.time-pill--orange {
+  background-color: #fdecdd;
+  border-color: #f5d3b1;
+  color: #b8651b;
+}
+
+/* ----- status pill ----- */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.status i {
+  font-size: 12px;
+}
+
+.status--ok   { color: #1f7a44; }
+.status--ok i { color: var(--color-green); }
+
+.status--warn   { color: #b8651b; }
+.status--warn i { color: var(--color-amber); }
+
+.status--bad   { color: #b3201d; }
+.status--bad i { color: var(--color-red); }
+
+/* ----- responsive tweaks ----- */
+@media (max-width: 991.98px) {
+  .kpi-card {
+    width: 160px;
+    min-height: 64px;
+  }
+
+  .kpi-card__value {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .dashboard {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .toolbar__filters {
+    width: 100%;
+  }
+
+  .filter-select,
+  .filter-date {
+    width: 100%;
+    flex: 1;
+  }
+
+  .kpi-card {
+    width: 150px;
+  }
+}
+
+/* ----- dark mode ----- */
+.app-body.dark-mode {
+  --color-bg: #0f172a;
+  --color-surface: #1a2236;
+  --color-border: #243049;
+  --color-border-strong: #2d3a55;
+  --color-text: #e5e7eb;
+  --color-text-muted: #9aa3b2;
+  --color-text-soft: #6b7588;
+}
+
+.app-body.dark-mode .practice-table {
+  --bs-table-hover-bg: #20293f;
+}
+
+.app-body.dark-mode .filter-date .input-group-text,
+.app-body.dark-mode .filter-date .form-control,
+.app-body.dark-mode .filter-select {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
+}
+
+.app-body.dark-mode .time-pill--green {
+  background-color: rgba(43, 182, 115, 0.15);
+  border-color: rgba(43, 182, 115, 0.35);
+  color: #6ee7a8;
+}
+
+.app-body.dark-mode .time-pill--orange {
+  background-color: rgba(242, 144, 48, 0.15);
+  border-color: rgba(242, 144, 48, 0.35);
+  color: #f5b66b;
+}
