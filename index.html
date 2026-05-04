@@ -43,8 +43,9 @@
         <article class="kpi-card kpi-card--red flex-shrink-0">
           <div class="kpi-card__bar"></div>
           <div class="kpi-card__body">
-            <div class="kpi-card__label">Practices</div>
+            <div class="kpi-card__label">Practies</div>
             <div class="kpi-card__value">15</div>
+            <div class="kpi-card__divider"></div>
             <div class="kpi-card__sub">$350k</div>
           </div>
         </article>
@@ -62,8 +63,9 @@
           <div class="kpi-card__bar"></div>
           <div class="kpi-card__body">
             <div class="kpi-card__label">Total User Tasks</div>
-            <div class="kpi-card__value">100k</div>
-            <div class="kpi-card__sub">&nbsp;</div>
+            <div class="kpi-card__value">100K</div>
+            <div class="kpi-card__divider"></div>
+            <div class="kpi-card__sub">Completed 12k</div>
           </div>
         </article>
 
@@ -108,7 +110,7 @@
           <div class="kpi-card__body">
             <div class="kpi-card__label">User Allocation</div>
             <div class="kpi-card__value">14 Users</div>
-            <div class="kpi-card__sub text-warning">-3 Users</div>
+            <div class="kpi-card__sub kpi-card__sub--warn">-3 Users</div>
           </div>
         </article>
       </section>
@@ -116,23 +118,23 @@
       <!-- Toolbar -->
       <section class="toolbar d-flex flex-wrap align-items-center justify-content-between gap-3 mb-2">
         <div class="toolbar__actions d-flex flex-wrap align-items-center gap-3">
-          <button type="button" class="btn btn-link toolbar-link p-0 text-primary">
+          <button type="button" class="btn toolbar-link p-0">
             <i class="bi bi-plus-lg me-1"></i>Assign Task
           </button>
-          <button type="button" class="btn btn-link toolbar-link p-0 text-info">
+          <button type="button" class="btn toolbar-link p-0">
             <i class="bi bi-box-arrow-up me-1"></i>Export
           </button>
-          <button type="button" class="btn btn-link toolbar-link p-0 text-success">
+          <button type="button" class="btn toolbar-link p-0">
             <i class="bi bi-arrow-clockwise me-1"></i>Refresh
           </button>
-          <button type="button" class="btn btn-link toolbar-link p-0 text-danger">
+          <button type="button" class="btn toolbar-link p-0">
             <i class="bi bi-trash3 me-1"></i>Delete Task
           </button>
         </div>
         <div class="toolbar__filters d-flex flex-wrap align-items-center gap-2">
-          <select class="form-select form-select-sm filter-select" aria-label="Practice filter">
-            <option selected>Practice Wise</option>
-            <option>User Wise</option>
+          <select class="form-select form-select-sm filter-select" aria-label="View filter">
+            <option selected>User Wise</option>
+            <option>Practice Wise</option>
             <option>Team Wise</option>
           </select>
           <div class="filter-date input-group input-group-sm">
@@ -141,7 +143,7 @@
               <i class="bi bi-calendar3"></i>
             </span>
           </div>
-          <button type="button" class="btn btn-sm btn-outline-secondary border-0 px-2" aria-label="More options">
+          <button type="button" class="btn btn-sm btn-link toolbar-more p-1" aria-label="More options">
             <i class="bi bi-three-dots"></i>
           </button>
         </div>
@@ -152,32 +154,42 @@
         <div class="table-responsive">
           <table class="table table-hover practice-table align-middle mb-0">
             <thead>
-              <tr>
-                <th scope="col" class="th-check">
+              <tr class="practice-table__head-row practice-table__head-row--top">
+                <th scope="col" rowspan="2" class="th-check">
                   <div class="d-flex align-items-center gap-2">
                     <input class="form-check-input" type="checkbox" aria-label="Select all" />
                     <span>Code</span>
                     <i class="bi bi-arrow-down-up sort-ico"></i>
                   </div>
                 </th>
-                <th scope="col">Practice Name <i class="bi bi-arrow-down-up sort-ico"></i></th>
-                <th scope="col">Team Lead <i class="bi bi-arrow-down-up sort-ico"></i></th>
-                <th scope="col">Users <i class="bi bi-arrow-down-up sort-ico"></i></th>
-                <th scope="col">Req Users <i class="bi bi-arrow-down-up sort-ico"></i></th>
-                <th scope="col">Var <i class="bi bi-arrow-down-up sort-ico"></i></th>
-                <th scope="col">Tasks <i class="bi bi-arrow-down-up sort-ico"></i></th>
-                <th scope="col">Allocated Time <i class="bi bi-arrow-down-up sort-ico"></i></th>
-                <th scope="col">Time Utilized <i class="bi bi-arrow-down-up sort-ico"></i></th>
-                <th scope="col">Var Time <i class="bi bi-arrow-down-up sort-ico"></i></th>
-                <th scope="col">Monthly<br />Collection <i class="bi bi-arrow-down-up sort-ico"></i></th>
-                <th scope="col">Per User<br />Collection <i class="bi bi-arrow-down-up sort-ico"></i></th>
-                <th scope="col">Claims <i class="bi bi-arrow-down-up sort-ico"></i></th>
-                <th scope="col">AR Claims <i class="bi bi-arrow-down-up sort-ico"></i></th>
-                <th scope="col">Other <i class="bi bi-arrow-down-up sort-ico"></i></th>
-                <th scope="col">Error Rate <i class="bi bi-arrow-down-up sort-ico"></i></th>
-                <th scope="col">Ranking <i class="bi bi-arrow-down-up sort-ico"></i></th>
-                <th scope="col">Performance <i class="bi bi-arrow-down-up sort-ico"></i></th>
-                <th scope="col">Authentication <i class="bi bi-arrow-down-up sort-ico"></i></th>
+                <th scope="col" rowspan="2">Practice Name <i class="bi bi-arrow-down-up sort-ico"></i></th>
+                <th scope="col" rowspan="2">Users <i class="bi bi-arrow-down-up sort-ico"></i></th>
+                <th scope="col" rowspan="2">Tasks <i class="bi bi-arrow-down-up sort-ico"></i></th>
+                <th scope="col" rowspan="2">Req Users <i class="bi bi-arrow-down-up sort-ico"></i></th>
+                <th scope="col" rowspan="2">User Var <i class="bi bi-arrow-down-up sort-ico"></i></th>
+                <th scope="colgroup" colspan="3" class="th-group">Claim</th>
+                <th scope="colgroup" colspan="3" class="th-group">AR Follow Up</th>
+                <th scope="colgroup" colspan="3" class="th-group">Payments</th>
+                <th scope="colgroup" colspan="3" class="th-group">Others</th>
+                <th scope="col" rowspan="2">Avg Allocated Time <i class="bi bi-arrow-down-up sort-ico"></i></th>
+                <th scope="col" rowspan="2">Avg Time Utilized <i class="bi bi-arrow-down-up sort-ico"></i></th>
+                <th scope="col" rowspan="2">Avg Var Time <i class="bi bi-arrow-down-up sort-ico"></i></th>
+                <th scope="col" rowspan="2">Error Rate <i class="bi bi-arrow-down-up sort-ico"></i></th>
+                <th scope="col" rowspan="2">Performance <i class="bi bi-arrow-down-up sort-ico"></i></th>
+              </tr>
+              <tr class="practice-table__head-row practice-table__head-row--sub">
+                <th scope="col" class="sub-rcvd">Rcvd</th>
+                <th scope="col" class="sub-done">Done</th>
+                <th scope="col" class="sub-pen">Pen</th>
+                <th scope="col" class="sub-rcvd">Rcvd</th>
+                <th scope="col" class="sub-done">Done</th>
+                <th scope="col" class="sub-pen">Pen</th>
+                <th scope="col" class="sub-rcvd">Rcvd</th>
+                <th scope="col" class="sub-done">Done</th>
+                <th scope="col" class="sub-pen">Pen</th>
+                <th scope="col" class="sub-rcvd">Rcvd</th>
+                <th scope="col" class="sub-done">Done</th>
+                <th scope="col" class="sub-pen">Pen</th>
               </tr>
             </thead>
             <tbody>
@@ -186,29 +198,23 @@
                 <td>
                   <div class="d-flex align-items-center gap-2">
                     <input class="form-check-input" type="checkbox" aria-label="Select row" />
-                    <span class="row-code">1003</span>
+                    <span class="row-code">1000</span>
                   </div>
                 </td>
-                <td>
-                  <span class="practice-tag"><span class="dot dot--green"></span>South Main Clinic</span>
-                </td>
-                <td>Faisal Server</td>
-                <td>15</td>
-                <td>20</td>
-                <td>5</td>
-                <td>6</td>
+                <td><span class="practice-tag"><span class="dot dot--green"></span>South Main Clinic</span></td>
+                <td>4</td>
+                <td>10</td>
+                <td>10</td>
+                <td>10</td>
+                <td class="num-rcvd">50</td><td class="num-done">50</td><td class="num-pen num-pen--empty">-</td>
+                <td class="num-rcvd">50</td><td class="num-done">50</td><td class="num-pen num-pen--empty">-</td>
+                <td class="num-rcvd">50</td><td class="num-done">50</td><td class="num-pen num-pen--empty">-</td>
+                <td class="num-rcvd">50</td><td class="num-done">50</td><td class="num-pen num-pen--empty">-</td>
+                <td><span class="time-pill time-pill--gray">7.5 Hours</span></td>
                 <td><span class="time-pill time-pill--green">7.5 Hours</span></td>
-                <td><span class="time-pill time-pill--green">7.5 Hours</span></td>
-                <td><span class="text-muted">-</span></td>
-                <td>$50k</td>
-                <td>$50k</td>
-                <td>150</td>
-                <td>8</td>
-                <td>15</td>
-                <td><span class="status status--ok"><i class="bi bi-check-circle-fill"></i>7%</span></td>
-                <td><span class="status status--ok"><i class="bi bi-check-circle-fill"></i>3rd</span></td>
-                <td><span class="status status--warn"><i class="bi bi-circle-fill"></i>Average</span></td>
-                <td><span class="status status--ok"><i class="bi bi-circle-fill"></i>Authorized</span></td>
+                <td><span class="time-pill time-pill--gray">-</span></td>
+                <td><span class="status status--warn"><i class="bi bi-exclamation-circle-fill"></i>7%</span></td>
+                <td><span class="status status--warn"><i class="bi bi-exclamation-circle-fill"></i>Average</span></td>
               </tr>
 
               <!-- Row 2 -->
@@ -216,29 +222,23 @@
                 <td>
                   <div class="d-flex align-items-center gap-2">
                     <input class="form-check-input" type="checkbox" aria-label="Select row" />
-                    <span class="row-code">1005</span>
+                    <span class="row-code">1000</span>
                   </div>
                 </td>
-                <td>
-                  <span class="practice-tag"><span class="dot dot--orange"></span>South Main Clinic</span>
-                </td>
-                <td>Bilal Ahmed</td>
-                <td>10</td>
-                <td>10</td>
-                <td><span class="text-muted">-</span></td>
-                <td>10</td>
-                <td><span class="time-pill time-pill--green">8 Hours</span></td>
-                <td><span class="time-pill time-pill--green">7 Hours</span></td>
-                <td><span class="time-pill time-pill--orange">1 Hour</span></td>
-                <td>$50k</td>
-                <td>$50k</td>
-                <td>140</td>
-                <td>10</td>
+                <td><span class="practice-tag"><span class="dot dot--orange"></span>South Main Clinic</span></td>
+                <td>5</td>
                 <td>20</td>
+                <td>20</td>
+                <td>20</td>
+                <td class="num-rcvd">50</td><td class="num-done">40</td><td class="num-pen">10</td>
+                <td class="num-rcvd">50</td><td class="num-done">40</td><td class="num-pen">10</td>
+                <td class="num-rcvd">50</td><td class="num-done">40</td><td class="num-pen">10</td>
+                <td class="num-rcvd">50</td><td class="num-done">40</td><td class="num-pen">10</td>
+                <td><span class="time-pill time-pill--gray">8 Hours</span></td>
+                <td><span class="time-pill time-pill--orange">7 Hours</span></td>
+                <td><span class="time-pill time-pill--orange">1 Hour</span></td>
                 <td><span class="status status--ok"><i class="bi bi-check-circle-fill"></i>2%</span></td>
-                <td><span class="status status--ok"><i class="bi bi-check-circle-fill"></i>1st</span></td>
-                <td><span class="status status--ok"><i class="bi bi-circle-fill"></i>Good</span></td>
-                <td><span class="status status--ok"><i class="bi bi-circle-fill"></i>Authorized</span></td>
+                <td><span class="status status--ok"><i class="bi bi-check-circle-fill"></i>Good</span></td>
               </tr>
 
               <!-- Row 3 -->
@@ -246,29 +246,23 @@
                 <td>
                   <div class="d-flex align-items-center gap-2">
                     <input class="form-check-input" type="checkbox" aria-label="Select row" />
-                    <span class="row-code">1007</span>
+                    <span class="row-code">1002</span>
                   </div>
                 </td>
-                <td>
-                  <span class="practice-tag"><span class="dot dot--orange"></span>NWO Gastroent...</span>
-                </td>
-                <td>Imran Aziz</td>
-                <td>8</td>
-                <td>15</td>
-                <td>7</td>
-                <td>7</td>
+                <td><span class="practice-tag"><span class="dot dot--orange"></span>NWO Gastroent...</span></td>
+                <td>2</td>
+                <td>60</td>
+                <td>60</td>
+                <td>60</td>
+                <td class="num-rcvd">60</td><td class="num-done">50</td><td class="num-pen">10</td>
+                <td class="num-rcvd">60</td><td class="num-done">50</td><td class="num-pen">10</td>
+                <td class="num-rcvd">60</td><td class="num-done">50</td><td class="num-pen">10</td>
+                <td class="num-rcvd">60</td><td class="num-done">50</td><td class="num-pen">10</td>
+                <td><span class="time-pill time-pill--gray">7 Hours</span></td>
                 <td><span class="time-pill time-pill--green">7 Hours</span></td>
-                <td><span class="time-pill time-pill--green">7 Hours</span></td>
-                <td><span class="text-muted">-</span></td>
-                <td>$50k</td>
-                <td>$50k</td>
-                <td>130</td>
-                <td>6</td>
-                <td>15</td>
+                <td><span class="time-pill time-pill--gray">-</span></td>
                 <td><span class="status status--bad"><i class="bi bi-x-circle-fill"></i>10%</span></td>
-                <td><span class="status status--warn"><i class="bi bi-exclamation-circle-fill"></i>10th</span></td>
-                <td><span class="status status--bad"><i class="bi bi-circle-fill"></i>Below Average</span></td>
-                <td><span class="status status--warn"><i class="bi bi-circle-fill"></i>Pending</span></td>
+                <td><span class="status status--bad"><i class="bi bi-x-circle-fill"></i>Below Average</span></td>
               </tr>
 
               <!-- Row 4 -->
@@ -276,29 +270,23 @@
                 <td>
                   <div class="d-flex align-items-center gap-2">
                     <input class="form-check-input" type="checkbox" aria-label="Select row" />
-                    <span class="row-code">1123</span>
+                    <span class="row-code">1003</span>
                   </div>
                 </td>
-                <td>
-                  <span class="practice-tag"><span class="dot dot--gray"></span>South Main Clinic</span>
-                </td>
-                <td>Hamid Ali</td>
-                <td>9</td>
-                <td>12</td>
-                <td>3</td>
-                <td>5</td>
-                <td><span class="time-pill time-pill--green">8 Hours</span></td>
+                <td><span class="practice-tag"><span class="dot dot--gray"></span>South Main Clinic</span></td>
+                <td>4</td>
+                <td>30</td>
+                <td>30</td>
+                <td>30</td>
+                <td class="num-rcvd">50</td><td class="num-done">50</td><td class="num-pen num-pen--empty">-</td>
+                <td class="num-rcvd">50</td><td class="num-done">50</td><td class="num-pen num-pen--empty">-</td>
+                <td class="num-rcvd">50</td><td class="num-done">50</td><td class="num-pen num-pen--empty">-</td>
+                <td class="num-rcvd">50</td><td class="num-done">50</td><td class="num-pen num-pen--empty">-</td>
+                <td><span class="time-pill time-pill--gray">6 Hours</span></td>
                 <td><span class="time-pill time-pill--green">5.5 Hours</span></td>
                 <td><span class="time-pill time-pill--orange">0.5 Hour</span></td>
-                <td>$50k</td>
-                <td>$50k</td>
-                <td>120</td>
-                <td>6</td>
-                <td>8</td>
-                <td><span class="status status--ok"><i class="bi bi-check-circle-fill"></i>7%</span></td>
-                <td><span class="status status--warn"><i class="bi bi-exclamation-circle-fill"></i>7th</span></td>
-                <td><span class="status status--bad"><i class="bi bi-circle-fill"></i>Below Average</span></td>
-                <td><span class="status status--ok"><i class="bi bi-circle-fill"></i>Authorized</span></td>
+                <td><span class="status status--warn"><i class="bi bi-exclamation-circle-fill"></i>7%</span></td>
+                <td><span class="status status--bad"><i class="bi bi-x-circle-fill"></i>Below Average</span></td>
               </tr>
 
               <!-- Row 5 -->
@@ -306,29 +294,23 @@
                 <td>
                   <div class="d-flex align-items-center gap-2">
                     <input class="form-check-input" type="checkbox" aria-label="Select row" />
-                    <span class="row-code">1129</span>
+                    <span class="row-code">1004</span>
                   </div>
                 </td>
-                <td>
-                  <span class="practice-tag"><span class="dot dot--green"></span>South Main Clinic</span>
-                </td>
-                <td>M Shafique</td>
-                <td>12</td>
-                <td>15</td>
-                <td>3</td>
-                <td>16</td>
-                <td><span class="time-pill time-pill--green">9 Hours</span></td>
+                <td><span class="practice-tag"><span class="dot dot--red"></span>South Main Clinic</span></td>
+                <td>1</td>
+                <td>70</td>
+                <td>70</td>
+                <td>70</td>
+                <td class="num-rcvd">70</td><td class="num-done">60</td><td class="num-pen">10</td>
+                <td class="num-rcvd">70</td><td class="num-done">60</td><td class="num-pen">10</td>
+                <td class="num-rcvd">70</td><td class="num-done">60</td><td class="num-pen">10</td>
+                <td class="num-rcvd">70</td><td class="num-done">60</td><td class="num-pen">10</td>
+                <td><span class="time-pill time-pill--gray">5 Hours</span></td>
                 <td><span class="time-pill time-pill--green">5 Hours</span></td>
-                <td><span class="text-muted">-</span></td>
-                <td>$50k</td>
-                <td>$50k</td>
-                <td>110</td>
-                <td>6</td>
-                <td>19</td>
+                <td><span class="time-pill time-pill--gray">-</span></td>
                 <td><span class="status status--ok"><i class="bi bi-check-circle-fill"></i>2%</span></td>
-                <td><span class="status status--ok"><i class="bi bi-check-circle-fill"></i>2nd</span></td>
-                <td><span class="status status--ok"><i class="bi bi-circle-fill"></i>Good</span></td>
-                <td><span class="status status--warn"><i class="bi bi-circle-fill"></i>Pending</span></td>
+                <td><span class="status status--ok"><i class="bi bi-check-circle-fill"></i>Good</span></td>
               </tr>
 
               <!-- Row 6 -->
@@ -336,29 +318,23 @@
                 <td>
                   <div class="d-flex align-items-center gap-2">
                     <input class="form-check-input" type="checkbox" aria-label="Select row" />
-                    <span class="row-code">1133</span>
+                    <span class="row-code">1005</span>
                   </div>
                 </td>
-                <td>
-                  <span class="practice-tag"><span class="dot dot--red"></span>NWO Gastroent...</span>
-                </td>
-                <td>Muhammad Bilal</td>
-                <td>5</td>
-                <td>5</td>
-                <td><span class="text-muted">-</span></td>
-                <td>12</td>
+                <td><span class="practice-tag"><span class="dot dot--green"></span>NWO Gastroent...</span></td>
+                <td>6</td>
+                <td>38</td>
+                <td>38</td>
+                <td>38</td>
+                <td class="num-rcvd">50</td><td class="num-done">50</td><td class="num-pen num-pen--empty">-</td>
+                <td class="num-rcvd">50</td><td class="num-done">50</td><td class="num-pen num-pen--empty">-</td>
+                <td class="num-rcvd">50</td><td class="num-done">50</td><td class="num-pen num-pen--empty">-</td>
+                <td class="num-rcvd">50</td><td class="num-done">50</td><td class="num-pen num-pen--empty">-</td>
+                <td><span class="time-pill time-pill--gray">6.5 Hours</span></td>
                 <td><span class="time-pill time-pill--green">6.5 Hours</span></td>
-                <td><span class="time-pill time-pill--green">6.5 Hours</span></td>
-                <td><span class="text-muted">-</span></td>
-                <td>$50k</td>
-                <td>$50k</td>
-                <td>100</td>
-                <td>12</td>
-                <td>16</td>
+                <td><span class="time-pill time-pill--gray">-</span></td>
                 <td><span class="status status--bad"><i class="bi bi-x-circle-fill"></i>10%</span></td>
-                <td><span class="status status--warn"><i class="bi bi-exclamation-circle-fill"></i>9th</span></td>
-                <td><span class="status status--bad"><i class="bi bi-circle-fill"></i>Below Average</span></td>
-                <td><span class="status status--warn"><i class="bi bi-circle-fill"></i>Pending</span></td>
+                <td><span class="status status--bad"><i class="bi bi-x-circle-fill"></i>Below Average</span></td>
               </tr>
 
               <!-- Row 7 -->
@@ -366,29 +342,23 @@
                 <td>
                   <div class="d-flex align-items-center gap-2">
                     <input class="form-check-input" type="checkbox" aria-label="Select row" />
-                    <span class="row-code">1223</span>
+                    <span class="row-code">1005</span>
                   </div>
                 </td>
-                <td>
-                  <span class="practice-tag"><span class="dot dot--orange"></span>South Main Clinic</span>
-                </td>
-                <td>Saif Ullah</td>
-                <td>3</td>
-                <td>3</td>
-                <td><span class="text-muted">-</span></td>
-                <td>10</td>
-                <td><span class="time-pill time-pill--green">8 Hours</span></td>
-                <td><span class="time-pill time-pill--green">7.5 Hours</span></td>
+                <td><span class="practice-tag"><span class="dot dot--orange"></span>South Main Clinic</span></td>
+                <td>4</td>
+                <td>19</td>
+                <td>19</td>
+                <td>19</td>
+                <td class="num-rcvd">30</td><td class="num-done">25</td><td class="num-pen">5</td>
+                <td class="num-rcvd">30</td><td class="num-done">25</td><td class="num-pen">5</td>
+                <td class="num-rcvd">30</td><td class="num-done">25</td><td class="num-pen">5</td>
+                <td class="num-rcvd">30</td><td class="num-done">25</td><td class="num-pen">5</td>
+                <td><span class="time-pill time-pill--gray">8 Hours</span></td>
+                <td><span class="time-pill time-pill--orange">7.5 Hours</span></td>
                 <td><span class="time-pill time-pill--orange">0.5 Hour</span></td>
-                <td>$50k</td>
-                <td>$50k</td>
-                <td>90</td>
-                <td>10</td>
-                <td>21</td>
-                <td><span class="status status--ok"><i class="bi bi-check-circle-fill"></i>7%</span></td>
-                <td><span class="status status--warn"><i class="bi bi-exclamation-circle-fill"></i>4th</span></td>
-                <td><span class="status status--warn"><i class="bi bi-circle-fill"></i>Average</span></td>
-                <td><span class="status status--warn"><i class="bi bi-circle-fill"></i>Pending</span></td>
+                <td><span class="status status--warn"><i class="bi bi-exclamation-circle-fill"></i>7%</span></td>
+                <td><span class="status status--warn"><i class="bi bi-exclamation-circle-fill"></i>Average</span></td>
               </tr>
 
               <!-- Row 8 -->
@@ -396,29 +366,23 @@
                 <td>
                   <div class="d-flex align-items-center gap-2">
                     <input class="form-check-input" type="checkbox" aria-label="Select row" />
-                    <span class="row-code">1229</span>
+                    <span class="row-code">1007</span>
                   </div>
                 </td>
-                <td>
-                  <span class="practice-tag"><span class="dot dot--orange"></span>South Main Clinic</span>
-                </td>
-                <td>Faisal Server</td>
-                <td>6</td>
-                <td>6</td>
-                <td><span class="text-muted">-</span></td>
-                <td>18</td>
-                <td><span class="time-pill time-pill--green">7 Hours</span></td>
-                <td><span class="time-pill time-pill--orange">6 Hours</span></td>
+                <td><span class="practice-tag"><span class="dot dot--orange"></span>South Main Clinic</span></td>
+                <td>3</td>
+                <td>10</td>
+                <td>10</td>
+                <td>10</td>
+                <td class="num-rcvd">40</td><td class="num-done">10</td><td class="num-pen num-pen--empty">-</td>
+                <td class="num-rcvd">40</td><td class="num-done">10</td><td class="num-pen num-pen--empty">-</td>
+                <td class="num-rcvd">40</td><td class="num-done">10</td><td class="num-pen num-pen--empty">-</td>
+                <td class="num-rcvd">40</td><td class="num-done">10</td><td class="num-pen num-pen--empty">-</td>
+                <td><span class="time-pill time-pill--gray">7 Hours</span></td>
+                <td><span class="time-pill time-pill--red">6 Hours</span></td>
                 <td><span class="time-pill time-pill--orange">1 Hour</span></td>
-                <td>$50k</td>
-                <td>$50k</td>
-                <td>80</td>
-                <td>18</td>
-                <td>18</td>
                 <td><span class="status status--ok"><i class="bi bi-check-circle-fill"></i>2%</span></td>
-                <td><span class="status status--warn"><i class="bi bi-exclamation-circle-fill"></i>6th</span></td>
-                <td><span class="status status--warn"><i class="bi bi-circle-fill"></i>Average</span></td>
-                <td><span class="status status--warn"><i class="bi bi-circle-fill"></i>Pending</span></td>
+                <td><span class="status status--warn"><i class="bi bi-exclamation-circle-fill"></i>Average</span></td>
               </tr>
 
               <!-- Row 9 -->
@@ -426,29 +390,23 @@
                 <td>
                   <div class="d-flex align-items-center gap-2">
                     <input class="form-check-input" type="checkbox" aria-label="Select row" />
-                    <span class="row-code">1359</span>
+                    <span class="row-code">1008</span>
                   </div>
                 </td>
-                <td>
-                  <span class="practice-tag"><span class="dot dot--orange"></span>NWO Gastroent...</span>
-                </td>
-                <td>Muhammad Usman</td>
-                <td>6</td>
-                <td>6</td>
-                <td><span class="text-muted">-</span></td>
-                <td>10</td>
+                <td><span class="practice-tag"><span class="dot dot--gray"></span>NWO Gastroent...</span></td>
+                <td>4</td>
+                <td>39</td>
+                <td>39</td>
+                <td>39</td>
+                <td class="num-rcvd">40</td><td class="num-done">35</td><td class="num-pen">5</td>
+                <td class="num-rcvd">40</td><td class="num-done">35</td><td class="num-pen">5</td>
+                <td class="num-rcvd">40</td><td class="num-done">35</td><td class="num-pen">5</td>
+                <td class="num-rcvd">40</td><td class="num-done">35</td><td class="num-pen">5</td>
+                <td><span class="time-pill time-pill--gray">7 Hours</span></td>
                 <td><span class="time-pill time-pill--green">7 Hours</span></td>
-                <td><span class="time-pill time-pill--green">7 Hours</span></td>
-                <td><span class="text-muted">-</span></td>
-                <td>$50k</td>
-                <td>$50k</td>
-                <td>70</td>
-                <td>10</td>
-                <td>5</td>
+                <td><span class="time-pill time-pill--gray">-</span></td>
                 <td><span class="status status--bad"><i class="bi bi-x-circle-fill"></i>10%</span></td>
-                <td><span class="status status--warn"><i class="bi bi-exclamation-circle-fill"></i>6th</span></td>
-                <td><span class="status status--bad"><i class="bi bi-circle-fill"></i>Below Average</span></td>
-                <td><span class="status status--ok"><i class="bi bi-circle-fill"></i>Authorized</span></td>
+                <td><span class="status status--bad"><i class="bi bi-x-circle-fill"></i>Below Average</span></td>
               </tr>
 
               <!-- Row 10 -->
@@ -456,29 +414,23 @@
                 <td>
                   <div class="d-flex align-items-center gap-2">
                     <input class="form-check-input" type="checkbox" aria-label="Select row" />
-                    <span class="row-code">1370</span>
+                    <span class="row-code">1009</span>
                   </div>
                 </td>
-                <td>
-                  <span class="practice-tag"><span class="dot dot--green"></span>South Main Clinic</span>
-                </td>
-                <td>Qaiser Hussain</td>
-                <td>7</td>
-                <td>7</td>
-                <td><span class="text-muted">-</span></td>
-                <td>4</td>
+                <td><span class="practice-tag"><span class="dot dot--orange"></span>South Main Clinic</span></td>
+                <td>3</td>
+                <td>40</td>
+                <td>40</td>
+                <td>40</td>
+                <td class="num-rcvd">40</td><td class="num-done">40</td><td class="num-pen num-pen--empty">-</td>
+                <td class="num-rcvd">40</td><td class="num-done">40</td><td class="num-pen num-pen--empty">-</td>
+                <td class="num-rcvd">40</td><td class="num-done">40</td><td class="num-pen num-pen--empty">-</td>
+                <td class="num-rcvd">40</td><td class="num-done">40</td><td class="num-pen num-pen--empty">-</td>
+                <td><span class="time-pill time-pill--gray">8 Hours</span></td>
                 <td><span class="time-pill time-pill--green">8 Hours</span></td>
-                <td><span class="time-pill time-pill--green">8 Hours</span></td>
-                <td><span class="text-muted">-</span></td>
-                <td>$50k</td>
-                <td>$50k</td>
-                <td>60</td>
-                <td>4</td>
-                <td>7</td>
+                <td><span class="time-pill time-pill--gray">-</span></td>
                 <td><span class="status status--bad"><i class="bi bi-x-circle-fill"></i>10%</span></td>
-                <td><span class="status status--warn"><i class="bi bi-exclamation-circle-fill"></i>8th</span></td>
-                <td><span class="status status--bad"><i class="bi bi-circle-fill"></i>Below Average</span></td>
-                <td><span class="status status--ok"><i class="bi bi-circle-fill"></i>Authorized</span></td>
+                <td><span class="status status--bad"><i class="bi bi-x-circle-fill"></i>Below Average</span></td>
               </tr>
             </tbody>
           </table>
@@ -486,11 +438,6 @@
       </section>
     </main>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
     <script src="assets/js/app.js"></script>
   </body>
 </html>
