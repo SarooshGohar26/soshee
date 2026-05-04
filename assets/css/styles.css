@@ -219,6 +219,18 @@
   margin-bottom: 0;
   white-space: nowrap;
   --bs-table-hover-bg: #f9fbfd;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.practice-table thead th,
+.practice-table tbody td {
+  border-right: 1px solid var(--color-border);
+}
+
+.practice-table thead tr th:last-child,
+.practice-table tbody tr td:last-child {
+  border-right: 0;
 }
 
 .practice-table thead th {
