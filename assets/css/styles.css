@@ -3,6 +3,7 @@
    ========================================================================== */
 
 :root {
+  --bold-text: #333333;
   --color-bg: #f6f8fb;
   --color-surface: #ffffff;
   --color-border: #e6e9ef;
@@ -17,7 +18,7 @@
   --color-blue: #2f87ff;
   --color-purple: #6f5cf2;
   --color-green: #2bb673;
-  --color-rose: #e0524c;
+  --color-rose: #9b1700;
   --color-amber: #f4a93a;
 
   --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.05);
@@ -63,10 +64,17 @@
 .dark-mode-toggle {
   font-size: 13px;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.dark-mode-toggle:hover {
+  text-decoration: none;
 }
 
 .dark-mode-toggle i {
   color: var(--color-blue);
+  font-size: 14px;
 }
 
 /* ----- KPI cards ----- */
@@ -81,18 +89,9 @@
   width: 170px;
   min-height: 70px;
   background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
   overflow: hidden;
-}
-
-.kpi-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 3px;
-  background-color: var(--accent, var(--color-blue));
+  box-shadow: var(--shadow-card);
 }
 
 .kpi-card__bar {
@@ -106,13 +105,15 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 }
 
 .kpi-card__label {
-  font-size: 12px;
-  color: var(--color-text-muted);
-  font-weight: 500;
+  font-size: 13px;
+  color: var(--bold-text);
+  font-weight: 700;
   margin-bottom: 2px;
+  line-height: 1.2;
 }
 
 .kpi-card__value {
@@ -122,9 +123,23 @@
   line-height: 1.2;
 }
 
+.kpi-card__divider {
+  width: 32%;
+  height: 2px;
+  background-color: var(--accent, var(--color-blue));
+  margin: 2px 0 3px;
+  border-radius: 2px;
+}
+
 .kpi-card__sub {
   font-size: 11px;
   color: var(--color-text-soft);
+  line-height: 1.2;
+}
+
+.kpi-card__sub--warn {
+  color: var(--color-orange);
+  font-weight: 500;
 }
 
 .kpi-card--red    { --accent: var(--color-red); }
@@ -145,10 +160,21 @@
   font-size: 13px;
   text-decoration: none;
   font-weight: 500;
+  color: var(--color-text-muted);
 }
 
 .toolbar-link:hover {
   text-decoration: underline;
+  color: var(--color-text);
+}
+
+.toolbar-more {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.toolbar-more:hover {
+  color: var(--color-text);
 }
 
 .filter-select,
@@ -160,21 +186,32 @@
 .filter-select {
   border-color: var(--color-border-strong);
   color: var(--color-text);
+  background-color: var(--color-surface);
 }
 
 .filter-date .form-control {
   border-right: 0;
+  border-color: var(--color-border-strong);
+  background-color: var(--color-surface);
+}
+
+.filter-date .form-control:focus {
+  border-color: var(--color-border-strong);
+  box-shadow: none;
 }
 
 .filter-date .input-group-text {
   border-left: 0;
+  border-color: var(--color-border-strong);
   color: var(--color-text-muted);
+  background-color: var(--color-surface) !important;
 }
 
 /* ----- table ----- */
 .table-card {
   border-radius: var(--radius-card);
   background-color: var(--color-surface);
+  overflow: hidden;
 }
 
 .practice-table {
@@ -190,15 +227,41 @@
   font-weight: 600;
   color: var(--color-text-muted);
   font-size: 12px;
-  padding: 12px 14px;
+  padding: 10px 12px;
   vertical-align: middle;
-  position: sticky;
-  top: 0;
-  z-index: 1;
+  text-align: center;
+  white-space: nowrap;
 }
 
+.practice-table thead .practice-table__head-row--top th[rowspan="2"] {
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.practice-table thead .th-group {
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-weight: 600;
+  background-color: #f3f5f9;
+}
+
+.practice-table thead .practice-table__head-row--sub th {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 8px 8px;
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  text-align: center;
+}
+
+.practice-table thead .sub-rcvd { color: var(--color-blue); }
+.practice-table thead .sub-done { color: var(--color-green); }
+.practice-table thead .sub-pen  { color: var(--color-orange); }
+
 .practice-table tbody td {
-  padding: 12px 14px;
+  padding: 10px 12px;
   vertical-align: middle;
   border-bottom: 1px solid var(--color-border);
   color: var(--color-text);
@@ -208,15 +271,41 @@
   border-bottom: 0;
 }
 
+.practice-table tbody td.num-rcvd,
+.practice-table tbody td.num-done,
+.practice-table tbody td.num-pen {
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.practice-table tbody td.num-rcvd { color: var(--color-blue); }
+.practice-table tbody td.num-done { color: var(--color-green); }
+.practice-table tbody td.num-pen  { color: var(--color-orange); }
+.practice-table tbody td.num-pen--empty {
+  color: var(--color-text-soft);
+  font-weight: 400;
+}
+
 .sort-ico {
   font-size: 10px;
   color: var(--color-text-soft);
   margin-left: 4px;
+  vertical-align: middle;
 }
 
 .row-code {
   color: var(--color-text);
   font-weight: 500;
+}
+
+.th-check .form-check-input {
+  margin-top: 0;
+}
+
+.practice-table tbody .form-check-input {
+  margin-top: 0;
+  border-color: var(--color-border-strong);
 }
 
 /* ----- practice tag ----- */
@@ -243,12 +332,20 @@
 /* ----- time pill ----- */
 .time-pill {
   display: inline-block;
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: var(--radius-pill);
   font-size: 11px;
   font-weight: 500;
   border: 1px solid transparent;
   white-space: nowrap;
+  min-width: 70px;
+  text-align: center;
+}
+
+.time-pill--gray {
+  background-color: #eef0f3;
+  border-color: #e1e4ea;
+  color: #5b6470;
 }
 
 .time-pill--green {
@@ -263,6 +360,12 @@
   color: #b8651b;
 }
 
+.time-pill--red {
+  background-color: #fde2e1;
+  border-color: #f6c2bf;
+  color: #b3201d;
+}
+
 /* ----- status pill ----- */
 .status {
   display: inline-flex;
@@ -274,27 +377,42 @@
 }
 
 .status i {
-  font-size: 12px;
+  font-size: 13px;
 }
 
-.status--ok   { color: #1f7a44; }
-.status--ok i { color: var(--color-green); }
+.status--ok    { color: var(--color-text); }
+.status--ok i  { color: var(--color-green); }
 
-.status--warn   { color: #b8651b; }
+.status--warn   { color: var(--color-text); }
 .status--warn i { color: var(--color-amber); }
 
-.status--bad   { color: #b3201d; }
-.status--bad i { color: var(--color-red); }
+.status--bad    { color: var(--color-text); }
+.status--bad i  { color: var(--color-red); }
 
 /* ----- responsive tweaks ----- */
-@media (max-width: 991.98px) {
+@media (max-width: 1199.98px) {
   .kpi-card {
     width: 160px;
+    min-height: 66px;
+  }
+
+  .kpi-card__value {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .kpi-card {
+    width: 150px;
     min-height: 64px;
   }
 
   .kpi-card__value {
     font-size: 16px;
+  }
+
+  .kpi-card__label {
+    font-size: 12px;
   }
 }
 
@@ -315,7 +433,7 @@
   }
 
   .kpi-card {
-    width: 150px;
+    width: 145px;
   }
 }
 
@@ -328,18 +446,29 @@
   --color-text: #e5e7eb;
   --color-text-muted: #9aa3b2;
   --color-text-soft: #6b7588;
+  --bold-text: #e5e7eb;
 }
 
 .app-body.dark-mode .practice-table {
   --bs-table-hover-bg: #20293f;
 }
 
+.app-body.dark-mode .practice-table thead .th-group {
+  background-color: #232c44;
+}
+
 .app-body.dark-mode .filter-date .input-group-text,
 .app-body.dark-mode .filter-date .form-control,
 .app-body.dark-mode .filter-select {
-  background-color: var(--color-surface);
+  background-color: var(--color-surface) !important;
   color: var(--color-text);
   border-color: var(--color-border-strong);
+}
+
+.app-body.dark-mode .time-pill--gray {
+  background-color: rgba(154, 163, 175, 0.15);
+  border-color: rgba(154, 163, 175, 0.3);
+  color: #c5cad3;
 }
 
 .app-body.dark-mode .time-pill--green {
@@ -352,4 +481,10 @@
   background-color: rgba(242, 144, 48, 0.15);
   border-color: rgba(242, 144, 48, 0.35);
   color: #f5b66b;
+}
+
+.app-body.dark-mode .time-pill--red {
+  background-color: rgba(232, 65, 59, 0.15);
+  border-color: rgba(232, 65, 59, 0.35);
+  color: #f6948f;
 }
